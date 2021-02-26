@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="uIc-Pf-mKf" customClass="ViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PDK-lI-dKP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l3z-4C-Nlc">
@@ -23,7 +23,7 @@
                                     <navigationItem title="メイン画面" id="GhJ-RK-e8d">
                                         <barButtonItem key="rightBarButtonItem" title="追加" style="done" id="9S4-QG-6km">
                                             <connections>
-                                                <segue destination="GcV-2r-OOD" kind="show" id="t3w-hm-rmw"/>
+                                                <segue destination="GcV-2r-OOD" kind="presentation" modalPresentationStyle="fullScreen" id="t3w-hm-rmw"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -66,7 +66,7 @@
             <objects>
                 <viewController id="GcV-2r-OOD" customClass="AddController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I6R-2c-5QY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOC-fg-jms">
@@ -76,7 +76,7 @@
                                     <navigationItem title="追加画面" id="F9E-FJ-EGG">
                                         <barButtonItem key="leftBarButtonItem" title="戻る" style="done" id="Eqz-mZ-tjQ">
                                             <connections>
-                                                <segue destination="uIc-Pf-mKf" kind="show" id="IQ7-vc-Cdq"/>
+                                                <action selector="back:" destination="GcV-2r-OOD" id="Kkh-eP-gAN"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

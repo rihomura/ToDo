@@ -28,7 +28,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.tableView.reloadData()
         // Do any additional setup after loading the view.
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
 
         if saveData.object(forKey: "TodoList") != nil {
             TodoKobetsunonakami = saveData.object(forKey: "TodoList") as! [String]
