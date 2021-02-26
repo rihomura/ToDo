@@ -7,13 +7,14 @@
 
 import UIKit
 
-//classの継承を追加
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //変数の設置
 var TodoKobetsunonakami = [String]()
 
+
+
 class AddController: UIViewController {
     
+    let saveData = UserDefaults.standard
     //テキストFieldの設定
     @IBOutlet weak var TodoTextField: UITextField!
     
@@ -24,7 +25,7 @@ class AddController: UIViewController {
         //追加ボタンを押したらフィールドを空にする
         TodoTextField.text = ""
         //変数の中身をUDに追加
-        UserDefaults.standard.set( TodoKobetsunonakami, forKey: "ToDoList")
+        saveData.set( TodoKobetsunonakami, forKey: "ToDoList")
     }
     
     override func viewDidLoad() {
