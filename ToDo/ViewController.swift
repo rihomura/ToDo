@@ -16,8 +16,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     let saveData = UserDefaults.standard
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        button.layer.cornerRadius = 40
         
         tableView.delegate = self
                 tableView.dataSource = self
@@ -30,8 +34,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     override func viewWillAppear(_ animated: Bool) {
 
-        if saveData.object(forKey: "TodoList") != nil {
-            TodoKobetsunonakami = saveData.object(forKey: "TodoList") as! [String]
+        if saveData.object(forKey: "ToDoList") != nil {
+            TodoKobetsunonakami = saveData.object(forKey: "ToDoList") as! [String]
         }
             
 
@@ -62,6 +66,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
         }
     }
+    
+    //    butten
+    var startingFrame : CGRect!
+    var endingFrame : CGRect!
+    
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) && self.button.isHidden {
+             self.button.isHidden = false
+             self.button.frame = startingFrame
+             UIView.animate(withDuration: 1.0) {
+              self.button.frame = self.endingFrame
+             }
+            }
+        }
+        func configureSizes() {
+            let screenSize = UIScreen.main.bounds
+            let screenWidth = screenSize.width
+            let screenHeight = screenSize.height
+
+            startingFrame = CGRect(x: 0, y: screenHeight+100, width: screenWidth, height: 100)
+            endingFrame = CGRect(x: 0, y: screenHeight-100, width: screenWidth, height: 100)
+
+
+        }
 
 
    
